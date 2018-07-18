@@ -1,0 +1,47 @@
+0. ssh mininet@192.168.56.101 // To login into mininet vm, password is mininet.
+1. ssh -X mininet@10.0.0.1 # To ssh into VM. -X option is for display.
+
+2. sudo mn # To create topology. This is predefined topology.
+
+3. help # Shows all the commands
+4. nodes # Show all the nodes in the network
+5. dump # More detailed info of the network
+6. net # Shows the links in the network
+7. h1 ping h2 # h1 will start pinging h2
+8. pingall # ping every host from every other hosts
+9. iperf # Use to see tcp and udp bandwidth between the hosts.
+10. iperfudp or iperftcp # For udp or tcp bandwidth.
+11. sudo mn -c # Kills any zombie process.
+12. sudo mn --link tc,bw=10,delay=10ms # To assign artificial delay in the links.
+
+13. sudo wireshark & # It is used to run wireshark in background.
+
+14. sudo mn --topo=single,4 # Same topology but with 4 hosts.
+15. sudo mn --topo=tree,2,2 # First 2 is for the levels of topology and the second two tells how many hosts are there under each switch.
+
+16. java -jar target/floodlight.jar # To run the floodlight controller.
+
+17. http://192.168.122.1:8080/ui/pages/topology.html # Link to open the GUI for controller.
+
+18. sudo mn --controller=remote,ip=192.168.122.1,port=6653 --switch ovsk,protocols=OpenFlow13 # Command to run different controller than the default
+ python controller.
+19. sudo mn --custom custom_example.py --topo mytopo # Used to run our own python file to build the topology.
+
+20. sudo python pythonfile.py # To run a python custom topology file.
+
+# Commands to add custom controller.
+net = Mininet(controller = RemoteController)
+info("Adding controller")
+net.addController('c0', controller=RemoteController,ip="192.168.122.1",port=6653)
+
+21. sudo ~/mininet/examples/miniedit.py # Command to start mininet
+
+22. =====================================================Commands to copy to/from VM.===========================================================
+
+If you want to copy a directory from machine a to b while logged into a:
+
+scp -r /path/to/directory user@ipaddress:/path/to/destination
+If you want to copy a directory from machine a to b while logged into b:
+
+scp -r user@ipaddress:/path/to/directory /path/to/destination
+================================================================================================================================================

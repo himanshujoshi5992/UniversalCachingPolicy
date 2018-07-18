@@ -1,0 +1,24 @@
+All the files are present in acn_project folder. But i have separated them out into folders for better understanding.
+
+|--------------------------------------------------------Basic idea----------------------------------------------------------------------------------|
+Some nodes in the network are serving as the http server (say h8, h16, h24, h32 you can make any node as server just run the server file onto it). And all the other nodes are the hosts asking for some content. 6 switches are running packets sniffer which are sniffing on all the interfaces. They sniff for different types of content and periodically send the data to controller which is connected to all the switches. Controller then sends this data to the Neural network. Neural network replies back with the content popularity. Which is then sent back to the switches.
+|----------------------------------------------------------------------------------------------------------------------------------------------------|
+
+1. For running a client use the client.py file with argument as the sever's ip address.
+2. The Deep learning algorithm should run on the host machine.
+3. Switches MAC address are passed as static macs.
+
+// Procedure to run.
+1. Start vm and ssh into VM
+2. Goto the folder named acn_project and run the script named topo2experiment.py
+3. Now go to another terminal onto your host OS and run the floodlight controller ( You should install it if not installed).
+4. Now come to VM and run pingall command so that controller can identify all the hosts.
+5. Now type "xterm h32" and run the server script.
+6. Open a client onto h1 by using the similar command as above.
+7. Run the switchsnif.py file onto one of the switch
+8. Run the mlserver onto the host m/c.
+9. Run the controller file onto controller.
+
+|-------------------------------------------------------Future work----------------------------------------------------------------------------------|
+After getting the popularity level of the content the switch can take a better decision whether to cache the data or not depending upon certain parameters such as it's cache size.
+|----------------------------------------------------------------------------------------------------------------------------------------------------|
