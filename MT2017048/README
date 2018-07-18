@@ -19,6 +19,3 @@ Some nodes in the network are serving as the http server (say h8, h16, h24, h32 
 8. Run the mlserver onto the host m/c.
 9. Run the controller file onto controller.
 
-|-------------------------------------------------------Future work----------------------------------------------------------------------------------|
-After getting the popularity level of the content the switch can take a better decision whether to cache the data or not depending upon certain parameters such as it's cache size.
-|----------------------------------------------------------------------------------------------------------------------------------------------------|
